@@ -27,7 +27,7 @@ export class PerksComponent implements OnInit {
     {data: this.perks, label: 'Series A'},
 
   ];
-  public barChartColors:Array<any> = [
+  public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: '#73879c',
       borderColor: '#73879c',
