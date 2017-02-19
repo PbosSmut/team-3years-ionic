@@ -3,3 +3,11 @@
     <ion-title>Project info</ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let project of projecten" (click)="viewProject(project)">
+      <h2>{{project.name}}</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

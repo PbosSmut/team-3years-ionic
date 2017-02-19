@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import {ProjectPage} from "../pages/project/project";
 import {TabsPage} from "../pages/tabs/tabs";
+import {ProjectDetailsPage} from "../pages/projectdetails/projectdetails";
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -17,6 +18,7 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     ProjectPage,
+    ProjectDetailsPage,
     TabsPage
   ],
   imports: [
@@ -28,6 +30,7 @@ const cloudSettings: CloudSettings = {
     MyApp,
     HomePage,
     ProjectPage,
+    ProjectDetailsPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
