@@ -5,11 +5,12 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { HomePage } from '../pages/home/home';
 import {TabsPage} from "../pages/tabs/tabs";
 import {ProjectService} from './services/projects.service';
+import {IndiegogoService} from "./services/indiegogo.service";
 
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ProjectService]
+  providers: [ProjectService, IndiegogoService]
 })
 export class MyApp {
   rootPage = TabsPage;

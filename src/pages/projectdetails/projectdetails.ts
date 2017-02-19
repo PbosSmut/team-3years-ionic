@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {ProjectService} from "../../app/services/projects.service";
-import {Project} from "../../app/model/project";
+import {BackersComponent} from '../../app/backers/backers.component';
 
 @Component({
   selector: 'projectdetails',

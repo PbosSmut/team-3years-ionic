@@ -6,6 +6,10 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import {ProjectPage} from "../pages/project/project";
 import {TabsPage} from "../pages/tabs/tabs";
 import {ProjectDetailsPage} from "../pages/projectdetails/projectdetails";
+import {BackersComponent} from "./backers/backers.component";
+import {PerksComponent} from "./perks/perks.component";
+import { ChartsModule } from 'ng2-charts';
+
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -19,11 +23,14 @@ const cloudSettings: CloudSettings = {
     HomePage,
     ProjectPage,
     ProjectDetailsPage,
-    TabsPage
+    TabsPage,
+    BackersComponent,
+    PerksComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
+    CloudModule.forRoot(cloudSettings),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,7 +38,9 @@ const cloudSettings: CloudSettings = {
     HomePage,
     ProjectPage,
     ProjectDetailsPage,
-    TabsPage
+    TabsPage,
+    BackersComponent,
+    PerksComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
