@@ -3,9 +3,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-import {ProjectPage} from "../pages/project/project";
+import {ProjectsPage} from "../pages/projects/projects";
 import {TabsPage} from "../pages/tabs/tabs";
-import {ProjectDetailsPage} from "../pages/projectdetails/projectdetails";
+import {IndiegogoDetailsPage} from "../pages/indiegogodetails/indiegogodetails";
 import {BackersComponent} from "./backers/backers.component";
 import {PerksComponent} from "./perks/perks.component";
 import { ChartsModule } from 'ng2-charts';
@@ -21,8 +21,8 @@ const cloudSettings: CloudSettings = {
   declarations: [
     MyApp,
     HomePage,
-    ProjectPage,
-    ProjectDetailsPage,
+    ProjectsPage,
+    IndiegogoDetailsPage,
     TabsPage,
     BackersComponent,
     PerksComponent
@@ -36,8 +36,8 @@ const cloudSettings: CloudSettings = {
   entryComponents: [
     MyApp,
     HomePage,
-    ProjectPage,
-    ProjectDetailsPage,
+    ProjectsPage,
+    IndiegogoDetailsPage,
     TabsPage,
     BackersComponent,
     PerksComponent

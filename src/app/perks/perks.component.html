@@ -1,12 +1,11 @@
 <h1>Indiegogo Perks</h1>
 <div *ngIf="perks" style="display: block">
-  <canvas height="300px" baseChart
+  <canvas height="200px" baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
           [options]="barChartOptions"
           [colors]="lineChartColors"
           [legend]="barChartLegend"
-          [chartType]="barChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
+          [chartType]="barChartType">
+  </canvas>
 </div>

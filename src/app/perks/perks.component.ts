@@ -15,17 +15,17 @@ export class PerksComponent implements OnInit {
   constructor(private indiegogoService: IndiegogoService) { }
 
   public barChartOptions:any = {
+
     scaleShowVerticalLines: false,
     responsive: true
   };
 
   public barChartLabels:string[]=[];
   public barChartType:string = 'bar';
-  public barChartLegend:boolean = true;
+  public barChartLegend:boolean = false;
   public barChartDatas: number[]=[];
   public barChartData:any[] = [
-    {data: this.perks, label: 'Series A'},
-
+    {data: this.perks},
   ];
   public lineChartColors:Array<any> = [
     { // grey
@@ -43,23 +43,12 @@ export class PerksComponent implements OnInit {
       this.perks = res;
 
       this.perks.map((value) =>{
-        console.log(value);
-        this.barChartLabels.push("perk van "+ value.amount+" euro");
+        this.barChartLabels.push("€"+ value.amount);
         this.barChartDatas.push(value.number_claimed);
       });
       this.barChartData=[
-        {data: this.barChartDatas, label: 'Series A'}];
-
-
+        {data: this.barChartDatas, label: 'Aantal'}];
     }));
-  }
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
   }
 
   public randomize():void {

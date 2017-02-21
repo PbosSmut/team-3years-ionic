@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ProjectService} from "../../app/services/projects.service";
 import {Project} from "../../app/model/project";
-import {ProjectDetailsPage} from "../projectdetails/projectdetails";
+import {IndiegogoDetailsPage} from "../indiegogodetails/indiegogodetails";
 
 @Component({
-  selector: 'project',
-  templateUrl: 'project.html'
+  selector: 'projects',
+  templateUrl: 'projects.html'
 })
-export class ProjectPage {
+export class ProjectsPage {
   projecten: Project[];
 
   constructor(public navCtrl: NavController, private projectService: ProjectService) {}
@@ -18,7 +18,7 @@ export class ProjectPage {
   }
 
   viewProject(project) {
-    this.navCtrl.push(ProjectDetailsPage, {
+    this.navCtrl.push(IndiegogoDetailsPage, {
       project:project
     });
   }

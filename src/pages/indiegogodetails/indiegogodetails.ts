@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {BackersComponent} from '../../app/backers/backers.component';
 
 @Component({
-  selector: 'projectdetails',
-  templateUrl: 'projectdetails.html'
+  selector: 'indiegogodetails',
+  templateUrl: 'indiegogodetails.html'
 })
-export class ProjectDetailsPage {
+export class IndiegogoDetailsPage {
   constructor(public navCtrl: NavController) {}
 
   ngOnInit() {

@@ -15,9 +15,11 @@ export class BackersComponent implements OnInit {
   }
 
   public barChartOptions: any = {
-
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{id: 'y-axis-1', type: 'linear', position: 'left', ticks: {min: 0}}]
+    }
   };
   public lineChartColors: Array<any> = [
     { // grey
@@ -31,41 +33,30 @@ export class BackersComponent implements OnInit {
   ];
   public barChartLabels: string[] = [];
   public barChartType: string = 'bar';
-  public barChartLegend: boolean = true;
+  public barChartLegend: boolean = false;
   public barChartDatas: number[] = [];
   public barChartData: any[] = [
-    {data: this.backers, label: 'Series A'},
-
+    {data: this.backers},
   ];
 
   ngOnInit(): void {
     this.indiegogoService.getBackers(21858).then((res => {
-      console.log("joe1");
       this.backers = res;
 
-      this.backers.map((value) => {
-        console.log(value);
-        this.barChartLabels.push(value.by);
-        this.barChartDatas.push(value.amount);
-      });
-      this.barChartData = [
-        {data: this.barChartDatas, label: 'Series A'}];
+      this.backers
+        .sort((b1,b2) => b2.amount - b1.amount)
+        .slice(0,5)
+        .map((value) => {
+          this.barChartLabels.push(value.by);
+          this.barChartDatas.push(value.amount);
+        });
 
-      console.log("joe2");
+      this.barChartData = [
+        {data: this.barChartDatas, label: 'Aantal'}];
     }));
   }
 
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    console.log(e);
-  }
-
   public randomize(): void {
-    // Only Change 3 values
     let data = [
       Math.round(Math.random() * 100),
       59,
