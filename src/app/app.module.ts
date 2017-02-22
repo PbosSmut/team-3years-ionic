@@ -9,6 +9,8 @@ import {IndiegogoDetailsPage} from "../pages/indiegogodetails/indiegogodetails";
 import {BackersComponent} from "./backers/backers.component";
 import {PerksComponent} from "./perks/perks.component";
 import { ChartsModule } from 'ng2-charts';
+import {FundsPieComponent} from "./funds/fundsPie.component";
+import {FundsComponent} from "./funds/funds.component";
 
 
 const cloudSettings: CloudSettings = {
@@ -25,7 +27,8 @@ const cloudSettings: CloudSettings = {
     IndiegogoDetailsPage,
     TabsPage,
     BackersComponent,
-    PerksComponent
+    PerksComponent,
+    FundsComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -40,7 +43,8 @@ const cloudSettings: CloudSettings = {
     IndiegogoDetailsPage,
     TabsPage,
     BackersComponent,
-    PerksComponent
+    PerksComponent,
+    FundsComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

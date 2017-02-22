@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
 import {Perk} from "../model/perk";
 import {Backer} from "../model/backer";
+import {FundDetails} from "../model/fundDetails";
 
 @Injectable()
 export class IndiegogoService {
@@ -27,5 +28,13 @@ export class IndiegogoService {
 
   private handleError(error: any): Promise<any>{
     return Promise.reject(error.message || error);
+  }
+
+  public getFundDetailsFromDb(campaignId: number): Promise<FundDetails[]>{
+    return Promise.resolve(this.http.get(IndiegogoService.BASE_PATH + campaignId + "/indiegogo/db/fundings").toPromise().then(res =>{
+      console.log(res);
+      const fundsArray: FundDetails[] = res.json() as FundDetails[];
+      return fundsArray;
+    }).catch(this.handleError))
   }
 }
