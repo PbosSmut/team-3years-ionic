@@ -32,8 +32,6 @@ export class PerksComponent implements OnInit {
       backgroundColor: '#73879c',
       borderColor: '#73879c',
       pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#4b57ff',
-      pointHoverBackgroundColor: '#0f19ff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];

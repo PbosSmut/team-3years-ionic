@@ -26,8 +26,6 @@ export class BackersComponent implements OnInit {
       backgroundColor: '#73879c',
       borderColor: '#73879c',
       pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#4b57ff',
-      pointHoverBackgroundColor: '#0f19ff',
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
@@ -54,19 +52,5 @@ export class BackersComponent implements OnInit {
       this.barChartData = [
         {data: this.barChartDatas, label: 'Aantal'}];
     }));
-  }
-
-  public randomize(): void {
-    let data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
   }
 }
