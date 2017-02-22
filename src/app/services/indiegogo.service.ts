@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
-import {Observable} from "rxjs";
+import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
-
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
@@ -12,7 +10,6 @@ import {Backer} from "../model/backer";
 @Injectable()
 export class IndiegogoService {
   public static BASE_PATH: string = "https://team-3years.herokuapp.com/project/";
-
   constructor(private http: Http) {
   }
 
@@ -22,17 +19,10 @@ export class IndiegogoService {
 
   }
 
-
-
   public getBackers(campaignId: number): Promise<Backer[]> {
     return Promise.resolve(this.http.get(IndiegogoService.BASE_PATH + campaignId + "/indiegogo/backers").toPromise().then(response =>{
       const backers:Backer[] = response.json() as Backer[];return backers;} ).catch(this.handleError));
 
-  }
-
-  private handleResponse(res: Response) {
-    let body = res.json();
-    return body;
   }
 
   private handleError(error: any): Promise<any>{

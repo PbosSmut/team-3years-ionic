@@ -6,7 +6,7 @@ import { HomePage } from './home';
 let comp: HomePage;
 let fixture: ComponentFixture<HomePage>;
 
-describe('Page: Home Page', () => {
+describe('Page: Home', () => {
 
   beforeEach(async(() => {
 
