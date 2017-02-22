@@ -1,7 +1,3 @@
-/**
- * Created by De Bièvre on 19-2-2017.
- */
-
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {forEach} from "@angular/router/src/utils/collection";
@@ -57,7 +53,7 @@ export class FundsComponent implements OnInit {
 
 
   };
-  public lineChartLegend: boolean = true;
+  public lineChartLegend: boolean = false;
   public lineChartType: String = 'line';
   public lineCharDatasCollected: number[] = [];
   public lineChartDatasGoal: number[] = [];
@@ -70,11 +66,11 @@ export class FundsComponent implements OnInit {
         this.lineCharDatasCollected.push(value.response.collected_funds);
         this.lineChartDatasGoal.push(value.response.goal);
         let datestring = new Date(value.date).toLocaleDateString();
-        /*if (this.lineChartLabels.indexOf(datestring) == -1) {
+        if (this.lineChartLabels.indexOf(datestring) == -1) {
           this.lineChartLabels.push(datestring);
         } else {
           this.lineChartLabels.push('');
-        }*/
+        }
       });
 
       this.lineChartData = [
@@ -83,14 +79,5 @@ export class FundsComponent implements OnInit {
       ];
 
     }));
-  }
-
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    console.log(e);
   }
 }

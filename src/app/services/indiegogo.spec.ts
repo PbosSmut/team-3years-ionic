@@ -32,4 +32,13 @@ describe('IndiegogoService', () => {
       });
     }));
   });
+
+  describe('getFunds', () => {
+    it('Test getFundDetails from campaign with funds', async(() => {
+      indiegogoService.getFundDetailsFromDb(21858).then(f => {
+        expect(Array.isArray(f)).toBeTruthy();
+        expect(f.length).toBeGreaterThan(0);
+      });
+    }));
+  });
 });

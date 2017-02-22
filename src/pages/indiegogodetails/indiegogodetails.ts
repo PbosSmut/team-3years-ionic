@@ -6,9 +6,24 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'indiegogodetails.html'
 })
 export class IndiegogoDetailsPage {
-  constructor(public navCtrl: NavController) {}
+  private showIndiegogoBackersGraph : boolean = false;
+  private showIndiegogoPerksGraph : boolean = false;
+  private showIndiegogoFundsGraph: boolean = false;
 
-  ngOnInit() {
+  constructor() {}
 
+  public toggleIndiegogoBackersGraph() {
+    if (this.showIndiegogoBackersGraph) this.showIndiegogoBackersGraph = false;
+    else this.showIndiegogoBackersGraph = true;
+  }
+
+  public toggleIndiegogoPerksGraph() {
+    if (this.showIndiegogoPerksGraph) this.showIndiegogoPerksGraph = false;
+    else this.showIndiegogoPerksGraph = true;
+  }
+
+  public toggleIndiegogoFundsGraph() {
+    if (this.showIndiegogoFundsGraph) this.showIndiegogoFundsGraph = false;
+    else this.showIndiegogoFundsGraph = true;
   }
 }

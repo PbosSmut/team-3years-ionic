@@ -4,8 +4,27 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <backers></backers>
-  <perks></perks>
-  <funds></funds>
+<ion-content>
+
+  <ion-card>
+    <ion-card-header (click)="toggleIndiegogoBackersGraph()">Top 5 Indiegogo Backers</ion-card-header>
+    <ion-list>
+      <backers *ngIf="showIndiegogoBackersGraph"></backers>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleIndiegogoPerksGraph()">Indiegogo Perks Sold</ion-card-header>
+    <ion-list>
+        <perks *ngIf="showIndiegogoPerksGraph"></perks>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleIndiegogoFundsGraph()">Indiegogo Total Funds Raised</ion-card-header>
+    <ion-list>
+      <funds *ngIf="showIndiegogoFundsGraph"></funds>
+    </ion-list>
+  </ion-card>
+
 </ion-content>

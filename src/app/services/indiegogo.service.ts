@@ -32,7 +32,6 @@ export class IndiegogoService {
 
   public getFundDetailsFromDb(campaignId: number): Promise<FundDetails[]>{
     return Promise.resolve(this.http.get(IndiegogoService.BASE_PATH + campaignId + "/indiegogo/db/fundings").toPromise().then(res =>{
-      console.log(res);
       const fundsArray: FundDetails[] = res.json() as FundDetails[];
       return fundsArray;
     }).catch(this.handleError))

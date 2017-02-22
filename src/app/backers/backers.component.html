@@ -1,12 +1,11 @@
-<h1>Beste 5 Indiegogo Backers</h1>
-  <div *ngIf="backers" style="display: block">
-    <canvas height="200px" baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [colors]="lineChartColors"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-    </canvas>
-  </div>
+<div *ngIf="backers" style="display: block">
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [colors]="lineChartColors"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ProjectService} from "../../app/services/projects.service";
 import {Project} from "../../app/model/project";
@@ -8,7 +8,7 @@ import {IndiegogoDetailsPage} from "../indiegogodetails/indiegogodetails";
   selector: 'projects',
   templateUrl: 'projects.html'
 })
-export class ProjectsPage {
+export class ProjectsPage implements OnInit{
   projecten: Project[];
 
   constructor(public navCtrl: NavController, private projectService: ProjectService) {}
