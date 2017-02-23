@@ -29,4 +29,13 @@
     </ion-list>
   </ion-card>
 
+  <ion-card>
+    <ion-card-header (click)="toggleShowMembers()">Members</ion-card-header>
+    <ion-list *ngIf="showMembers">
+      <ion-item *ngFor="let member of project.members">
+        <h2 >{{member.name}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
 </ion-content>

@@ -11,15 +11,17 @@ import {IndiegogoDetailsPage} from "../indiegogodetails/indiegogodetails";
 export class ProjectsPage implements OnInit{
   projecten: Project[];
 
-  constructor(public navCtrl: NavController, private projectService: ProjectService) {}
+  constructor(public navCtrl: NavController, private projectService: ProjectService) {
+
+  }
 
   ngOnInit() {
-    this.projectService.getProjects("Rob").then(data => this.projecten = data);
+    this.projectService.getProjects("Jesse").then(data => this.projecten = data);
   }
 
   viewProject(project) {
     this.navCtrl.push(IndiegogoDetailsPage, {
-      project:project
+      project: project
     });
   }
 }

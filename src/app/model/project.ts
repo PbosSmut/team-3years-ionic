@@ -1,3 +1,6 @@
+import {Member} from "./member";
+import {Twittertag} from "./twittertag";
+
 export class Project{
   public name:String;
   public creatorName:String;
@@ -5,7 +8,8 @@ export class Project{
   public facebookLink:String;
   public instagramLink:String;
   public twitterLink:String;
-  public hashtags:String[];
+  public twitterTags:Twittertag[];
+  public members:Member[];
 
   constructor(){
     this.name = "";
@@ -14,6 +18,7 @@ export class Project{
     this.facebookLink = "";
     this.instagramLink = "";
     this.twitterLink = "";
-    this.hashtags  = [];
+    this.twitterTags  = [];
+    this.members = [];
   }
 }
