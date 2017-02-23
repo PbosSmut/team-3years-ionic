@@ -1,0 +1,14 @@
+ion-title {
+  text-align: center;
+}
+
+ion-content {
+  background: color($colors, secondary) !important;
+  color: color($colors, lighttext) !important;
+}
+
+button {
+  margin-top: 20px !important;
+  border-radius: 5px !important;
+  width: 100%;
+}

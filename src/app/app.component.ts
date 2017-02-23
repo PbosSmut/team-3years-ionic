@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { HomePage } from '../pages/home/home';
-import {TabsPage} from "../pages/tabs/tabs";
+import { LoginPage } from '../pages/login/login';
 import {ProjectService} from './services/projects.service';
 import {IndiegogoService} from "./services/indiegogo.service";
 
@@ -13,7 +12,7 @@ import {IndiegogoService} from "./services/indiegogo.service";
   providers: [ProjectService, IndiegogoService]
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = LoginPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
