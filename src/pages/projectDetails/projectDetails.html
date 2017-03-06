@@ -9,9 +9,7 @@
   <ion-card>
     <ion-card-header (click)="toggleIndiegogoBackersGraph()">Top 5 Indiegogo Backers</ion-card-header>
     <ion-list class="list">
-
       <backers *ngIf="showIndiegogoBackersGraph"></backers>
-
     </ion-list>
   </ion-card>
 
@@ -28,6 +26,21 @@
       <funds *ngIf="showIndiegogoFundsGraph"></funds>
     </ion-list>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleTwitterFollowersGraph()">Twitter Followers</ion-card-header>
+    <ion-list>
+      <twitterFollowers *ngIf="showTwitterFollowersGraph"></twitterFollowers>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleTwitterFavsGraph()">Twitter Followers</ion-card-header>
+    <ion-list>
+      <twitterFavs *ngIf="showTwitterFavsGraph"></twitterFavs>
+    </ion-list>
+  </ion-card>
+
 
   <ion-card>
     <ion-card-header (click)="toggleShowMembers()">Members</ion-card-header>

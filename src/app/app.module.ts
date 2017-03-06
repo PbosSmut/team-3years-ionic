@@ -5,12 +5,15 @@ import {LoginPage} from '../pages/login/login';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import {ProjectsPage} from "../pages/projects/projects";
 import {TabsPage} from "../pages/tabs/tabs";
-import {IndiegogoDetailsPage} from "../pages/indiegogodetails/indiegogodetails";
-import {BackersComponent} from "./backers/backers.component";
-import {PerksComponent} from "./perks/perks.component";
+import {ProjectDetailsPage} from "../pages/projectDetails/projectDetails";
+import {BackersComponent} from "./graphs/backers/backers.component";
+import {PerksComponent} from "./graphs/perks/perks.component";
 import { ChartsModule } from 'ng2-charts';
-import {FundsPieComponent} from "./funds/fundsPie.component";
-import {FundsComponent} from "./funds/funds.component";
+import {FundsPieComponent} from "./graphs/funds/fundsPie.component";
+import {FundsComponent} from "./graphs/funds/funds.component";
+import {TwitterFollowersComponent} from "./graphs/twitterFollowers/twitterFollowers.component";
+import {TwitterFavsComponent} from "./graphs/twitterFavs/twitterFavs.component";
+
 
 
 const cloudSettings: CloudSettings = {
@@ -24,11 +27,13 @@ const cloudSettings: CloudSettings = {
     MyApp,
     LoginPage,
     ProjectsPage,
-    IndiegogoDetailsPage,
+    ProjectDetailsPage,
     TabsPage,
     BackersComponent,
     PerksComponent,
-    FundsComponent
+    FundsComponent,
+    TwitterFollowersComponent,
+    TwitterFavsComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -40,11 +45,13 @@ const cloudSettings: CloudSettings = {
     MyApp,
     LoginPage,
     ProjectsPage,
-    IndiegogoDetailsPage,
+    ProjectDetailsPage,
     TabsPage,
     BackersComponent,
     PerksComponent,
-    FundsComponent
+    FundsComponent,
+    TwitterFollowersComponent,
+    TwitterFavsComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

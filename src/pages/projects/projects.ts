@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ProjectService} from "../../app/services/projects.service";
 import {Project} from "../../app/model/project";
-import {IndiegogoDetailsPage} from "../indiegogodetails/indiegogodetails";
+import {ProjectDetailsPage} from "../projectDetails/projectDetails";
 
 @Component({
   selector: 'projects',
@@ -20,7 +20,7 @@ export class ProjectsPage implements OnInit{
   }
 
   viewProject(project) {
-    this.navCtrl.push(IndiegogoDetailsPage, {
+    this.navCtrl.push(ProjectDetailsPage, {
       project: project
     });
   }

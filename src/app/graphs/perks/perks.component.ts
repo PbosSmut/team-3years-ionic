@@ -1,8 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {Backer} from "../model/backer";
-import {IndiegogoService} from "../services/indiegogo.service";
-import {Perk} from "../model/perk";
+import {IndiegogoService} from "../../services/indiegogo.service";
+import {Perk} from "../../model/perk";
 
 
 @Component({

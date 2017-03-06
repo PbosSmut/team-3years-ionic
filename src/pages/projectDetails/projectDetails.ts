@@ -3,13 +3,15 @@ import {NavController, NavParams} from 'ionic-angular';
 import {Project} from "../../app/model/project";
 
 @Component({
-  selector: 'indiegogodetails',
-  templateUrl: 'indiegogodetails.html'
+  selector: 'projectDetails',
+  templateUrl: 'projectDetails.html'
 })
-export class IndiegogoDetailsPage {
+export class ProjectDetailsPage {
   private showIndiegogoBackersGraph : boolean = false;
   private showIndiegogoPerksGraph : boolean = false;
   private showIndiegogoFundsGraph: boolean = false;
+  private showTwitterFollowersGraph: boolean = false;
+  private showTwitterFavsGraph: boolean = false;
   private showMembers: boolean = false;
   private project : Project;
 
@@ -31,6 +33,16 @@ export class IndiegogoDetailsPage {
   public toggleIndiegogoFundsGraph() {
     if (this.showIndiegogoFundsGraph) this.showIndiegogoFundsGraph = false;
     else this.showIndiegogoFundsGraph = true;
+  }
+
+  public toggleTwitterFollowersGraph() {
+    if (this.showTwitterFollowersGraph) this.showTwitterFollowersGraph = false;
+    else this.showTwitterFollowersGraph = true;
+  }
+
+  public toggleTwitterFavsGraph() {
+    if (this.showTwitterFavsGraph) this.showTwitterFavsGraph = false;
+    else this.showTwitterFavsGraph = true;
   }
 
   public toggleShowMembers() {
