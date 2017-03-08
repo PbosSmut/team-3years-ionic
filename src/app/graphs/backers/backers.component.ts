@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {Backer} from "../../model/backer";
+import {Backer} from "../../model/indiegogo/backer";
 import {IndiegogoService} from "../../services/indiegogo.service";
 
 
@@ -9,9 +9,12 @@ import {IndiegogoService} from "../../services/indiegogo.service";
   templateUrl: 'backers.component.html'
 })
 export class BackersComponent implements OnInit {
-  private backers: Backer[];
 
-  constructor(private indiegogoService: IndiegogoService) {
+  @Input()
+  backers: Backer[];
+
+
+  constructor() {
   }
 
   public barChartOptions: any = {
@@ -38,10 +41,7 @@ export class BackersComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.indiegogoService.getBackers(21858).then((res => {
-      this.backers = res;
-
-      this.backers
+        this.backers
         .sort((b1,b2) => b2.amount - b1.amount)
         .slice(0,5)
         .map((value) => {
@@ -51,6 +51,6 @@ export class BackersComponent implements OnInit {
 
       this.barChartData = [
         {data: this.barChartDatas, label: 'Aantal'}];
-    }));
+    }
   }
-}
+

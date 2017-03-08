@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {TwitterData} from "../../model/twitterData";
+import {TwitterData} from "../../model/twitter/twitterData";
 import {TwitterService} from "../../services/twitter.service";
 
 @Component({
   selector: 'twitterFavs',
   templateUrl: 'twitterFavs.component.html',
-  providers: [TwitterService]
+
 })
 export class TwitterFavsComponent implements OnInit {
-  private twitterData: TwitterData[];
+  @Input()
+  twitterData: TwitterData[];
 
-  constructor(private twitterService: TwitterService) {
+  constructor() {
   }
 
 
@@ -56,8 +57,6 @@ export class TwitterFavsComponent implements OnInit {
   public lineCharDatasLike: number[] = [];
 
   ngOnInit(): void {
-    this.twitterService.getTwitterData("Google").then((res => {
-        this.twitterData = res;
 
         //make array disctinct and take the last value as true value
         var temptwitterData: TwitterData[] = [];
@@ -73,7 +72,7 @@ export class TwitterFavsComponent implements OnInit {
         }
         this.twitterData = temptwitterData;
         this.twitterData.filter(tweet => (!tweet.text.startsWith('@'))).map((value) => {
-          let newDate = new Date(value.date);
+          let newDate = new Date(value.timestamp);
           let newmonth = newDate.getMonth() +1;
           let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();          this.lineCharDatasLike.push(value.amtFavsLastPost);
           if (this.lineChartLabels.indexOf(label) == -1) {
@@ -85,7 +84,7 @@ export class TwitterFavsComponent implements OnInit {
         this.lineChartData = [
           {data: this.lineCharDatasLike, label: 'Favourites on tweet'}
         ];
-      })
-    );
+
+
   }
 }

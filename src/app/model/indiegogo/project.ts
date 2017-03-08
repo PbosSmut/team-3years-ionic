@@ -1,5 +1,5 @@
-import {Member} from "./member";
-import {Twittertag} from "./twittertag";
+import {Member} from "../project/member";
+import {Twittertag} from "../project/twittertag";
 
 export class Project{
   public name:String;

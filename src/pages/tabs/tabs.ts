@@ -10,6 +10,7 @@ export class TabsPage {
 
   tab1: any = ProjectsPage;
 
+
   constructor() {
   }
 }

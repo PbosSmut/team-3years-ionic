@@ -1,3 +1,4 @@
+/*
 import {IndiegogoService} from "./indiegogo.service";
 import {async, inject, TestBed} from '@angular/core/testing';
 import { MyApp } from './app.component';
@@ -5,7 +6,8 @@ import {HttpModule} from "@angular/http";
 
 describe('IndiegogoService', () => {
   let indiegogoService;
-
+*/
+/*
   beforeEach(() => TestBed.configureTestingModule({
     imports: [ HttpModule ],
     providers: [ IndiegogoService ]
@@ -42,3 +44,4 @@ describe('IndiegogoService', () => {
     }));
   });
 });
+*/

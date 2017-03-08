@@ -1,19 +1,21 @@
+/**
+ * Created by De Bièvre on 6-3-2017.
+ */
 import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {forEach} from "@angular/router/src/utils/collection";
-import {Fund} from "../../model/indiegogo/fund";
-import {IndiegogoService} from "../../services/indiegogo.service";
-import {IndiegogoData} from "../../model/indiegogo/indiegogoData";
+
+import {Router, ActivatedRoute} from "@angular/router";
+import 'rxjs/add/operator/switchMap';
+import {InstagramUserData} from "../model/instagram/instagramData";
+import {InstagramService} from "../services/instagram.service";
+import {InstagramData} from "../../model/instagram/instagramData";
 
 @Component({
-  selector: 'funds',
-  templateUrl: './funds.component.html'
+  selector: 'instagramFollowers',
+  templateUrl: 'instagramFollowers.component.html',
 })
-
-export class FundsComponent implements OnInit {
+export class InstagramUserDataComponent implements OnInit {
   @Input()
-  indiegogoData: IndiegogoData[];
-
+  instagramData: InstagramData[];
 
   constructor() {
   }
@@ -54,30 +56,28 @@ export class FundsComponent implements OnInit {
 
 
   };
-  public lineChartLegend: boolean = false;
+  public lineChartLegend: boolean = true;
   public lineChartType: String = 'line';
-  public lineCharDatasCollected: number[] = [];
-  public lineChartDatasGoal: number[] = [];
+  public lineCharDatasLike: number[] = [];
 
 
   ngOnInit() {
-      this.indiegogoData.map((value) => {
-        this.lineCharDatasCollected.push(value.fund.collected_funds);
-        this.lineChartDatasGoal.push(value.fund.goal);
-        let newDate = new Date(value.timestamp);
-        let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
-
-        if (this.lineChartLabels.indexOf(label) == -1) {
-          this.lineChartLabels.push(label);
-        } else {
-          this.lineChartLabels.push('');
-        }
-      });
-
+    this.instagramData.map((value) => {
+      this.lineCharDatasLike.push(value.followed_by);
+      let newDate = new Date(value.timestamp);
+      let newmonth = newDate.getMonth() + 1;
+      let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
+      if (this.lineChartLabels.indexOf(label) == -1) {
+        this.lineChartLabels.push(label);
+      } else {
+        this.lineChartLabels.push('');
+      }
+    });
 
     this.lineChartData = [
-        {data: this.lineCharDatasCollected, label: 'Funds Collected'},
-        {data: this.lineChartDatasGoal, label: 'Fund Goal'}
-      ];
-    }
+      {data: this.lineCharDatasLike, label: 'Followers amount'}
+    ];
+
+  }
+
 }

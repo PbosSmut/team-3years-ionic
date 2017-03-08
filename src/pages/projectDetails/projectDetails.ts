@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {Project} from "../../app/model/project";
+import {Project} from "../../app/model/indiegogo/project";
 
 @Component({
   selector: 'projectDetails',
@@ -9,9 +9,10 @@ import {Project} from "../../app/model/project";
 export class ProjectDetailsPage {
   private showIndiegogoBackersGraph : boolean = false;
   private showIndiegogoPerksGraph : boolean = false;
-  private showIndiegogoFundsGraph: boolean = false;
+ private showIndiegogoFundsGraph: boolean = false;
   private showTwitterFollowersGraph: boolean = false;
   private showTwitterFavsGraph: boolean = false;
+  private showFacebookLikesGraph: boolean = false;
   private showMembers: boolean = false;
   private project : Project;
 
@@ -21,33 +22,31 @@ export class ProjectDetailsPage {
 
 
   public toggleIndiegogoBackersGraph() {
-    if (this.showIndiegogoBackersGraph) this.showIndiegogoBackersGraph = false;
-    else this.showIndiegogoBackersGraph = true;
+    this.showIndiegogoBackersGraph = !this.showIndiegogoBackersGraph;
   }
 
   public toggleIndiegogoPerksGraph() {
-    if (this.showIndiegogoPerksGraph) this.showIndiegogoPerksGraph = false;
-    else this.showIndiegogoPerksGraph = true;
+    this.showIndiegogoPerksGraph = !this.showIndiegogoPerksGraph;
   }
 
   public toggleIndiegogoFundsGraph() {
-    if (this.showIndiegogoFundsGraph) this.showIndiegogoFundsGraph = false;
-    else this.showIndiegogoFundsGraph = true;
+    this.showIndiegogoFundsGraph = !this.showIndiegogoFundsGraph;
   }
 
   public toggleTwitterFollowersGraph() {
-    if (this.showTwitterFollowersGraph) this.showTwitterFollowersGraph = false;
-    else this.showTwitterFollowersGraph = true;
+    this.showTwitterFollowersGraph = !this.showTwitterFollowersGraph;
   }
 
   public toggleTwitterFavsGraph() {
-    if (this.showTwitterFavsGraph) this.showTwitterFavsGraph = false;
-    else this.showTwitterFavsGraph = true;
+    this.showTwitterFavsGraph = !this.showTwitterFavsGraph;
   }
 
   public toggleShowMembers() {
     console.log(this.project);
-    if (this.showMembers) this.showMembers = false;
-    else this.showMembers = true;
+    this.showMembers = !this.showMembers;
+  }
+
+  public toggleFacebookLikesGraph() {
+    this.showFacebookLikesGraph = !this.showFacebookLikesGraph;
   }
 }

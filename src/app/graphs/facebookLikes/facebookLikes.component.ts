@@ -1,15 +1,18 @@
-import {Component, OnInit, Input} from '@angular/core';
-import 'rxjs/add/operator/switchMap';
-import {TwitterData} from "../../model/twitter/twitterData";
+import {FacebookData} from "../../model/facebook/facebookData";
+import {Input, OnInit, Component} from "@angular/core";
+/**
+ * Created by De Bièvre on 6-3-2017.
+ */
 
 @Component({
-  selector: 'twitterFollowers',
-  templateUrl: 'twitterFollowers.component.html',
+  selector: 'facebookLikes',
+  templateUrl: './facebookLikes.component.html',
 })
 
-export class TwitterFollowersComponent implements OnInit {
+export class FacebookLikesComponent implements OnInit {
+
   @Input()
-  private twitterData: TwitterData[];
+  facebookData: FacebookData[];
 
   constructor() {
   }
@@ -44,38 +47,19 @@ export class TwitterFollowersComponent implements OnInit {
   // lineChart
   public lineChartData: Array<any> = [];
   public lineChartLabels: Array<any> = [];
-  public lineChartOptions: any = {
-    responsive: true,
-    scaleShowVerticalLines: false
-
-
-  };
+  public lineChartOptions: any = {responsive: true, scaleShowVerticalLines: false};
   public lineChartLegend: boolean = true;
   public lineChartType: String = 'line';
   public lineCharDatasLike: number[] = [];
 
-
-
-  ngOnInit() {
-
-      this.twitterData.map((value) => {
-        this.lineCharDatasLike.push(value.amtFollowers);
-        console.log(value.timestamp);
-        let newDate = new Date(value.timestamp);
-        console.log(newDate);
-        let newmonth = newDate.getMonth() +1;
-        console.log(newmonth);
-        let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
-        if (this.lineChartLabels.indexOf(label) == -1) {
-          this.lineChartLabels.push(label);
-        } else {
-          this.lineChartLabels.push('');
-        }
-      });
-
-      this.lineChartData = [
-        {data: this.lineCharDatasLike, label: 'Followers amount'}
-      ];
-    }
+  ngOnInit(): void {
+    this.facebookData.map((value) => {
+      this.lineCharDatasLike.push(value.pageInfo.amtPageLikes);
+      let newDate = new Date(value.timestamp);
+      let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
+      if (this.lineChartLabels.indexOf(label) == -1) this.lineChartLabels.push(label);
+      else this.lineChartLabels.push('');
+      this.lineChartData = [{data: this.lineCharDatasLike, label: 'Pagelikes'}];
+    });
   }
-
+}

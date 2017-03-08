@@ -1,12 +1,13 @@
+/*
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
-import {Perk} from "../model/perk";
-import {Backer} from "../model/backer";
-import {FundDetails} from "../model/fundDetails";
+import {Perk} from "../model/indiegogo/perk";
+import {Backer} from "../model/indiegogo/backer";
+import {FundDetails} from "../model/indiegogo/fundDetails";
 
 @Injectable()
 export class IndiegogoService {
@@ -37,3 +38,4 @@ export class IndiegogoService {
     }).catch(this.handleError))
   }
 }
+*/

@@ -5,5 +5,5 @@ export class TwitterData {
   amtFollowers: number;
   amtFavsLastPost: number;
   amtRetweetsLastPost: number;
-  date: Date;
+  timestamp: Date;
 }

@@ -4,12 +4,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
 import {ProjectService} from './services/projects.service';
-import {IndiegogoService} from "./services/indiegogo.service";
 
 
 @Component({
   templateUrl: 'app.html',
-  providers: [ProjectService, IndiegogoService]
+  providers: [ProjectService]
 })
 export class MyApp {
   rootPage = LoginPage;

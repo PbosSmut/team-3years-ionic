@@ -4,40 +4,51 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="project">
 
   <ion-card>
     <ion-card-header (click)="toggleIndiegogoBackersGraph()">Top 5 Indiegogo Backers</ion-card-header>
     <ion-list class="list">
-      <backers *ngIf="showIndiegogoBackersGraph"></backers>
+      <backers *ngIf="showIndiegogoBackersGraph"
+                [backers]="project.indiegogoDataList[project.indiegogoDataList.length-1].backers"></backers>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-card-header (click)="toggleIndiegogoPerksGraph()">Indiegogo Perks Sold</ion-card-header>
     <ion-list >
-        <perks *ngIf="showIndiegogoPerksGraph"></perks>
+        <perks *ngIf="showIndiegogoPerksGraph"
+               [perks]="project.indiegogoDataList[project.indiegogoDataList.length-1].perks"></perks>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-card-header (click)="toggleIndiegogoFundsGraph()">Indiegogo Total Funds Raised</ion-card-header>
     <ion-list>
-      <funds *ngIf="showIndiegogoFundsGraph"></funds>
+      <funds *ngIf="showIndiegogoFundsGraph"
+             [indiegogoData]="project.indiegogoDataList"
+      ></funds>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-card-header (click)="toggleTwitterFollowersGraph()">Twitter Followers</ion-card-header>
     <ion-list>
-      <twitterFollowers *ngIf="showTwitterFollowersGraph"></twitterFollowers>
+      <twitterFollowers *ngIf="showTwitterFollowersGraph" [twitterData]="project.twitterDataList"></twitterFollowers>
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <ion-card-header (click)="toggleTwitterFavsGraph()">Twitter Followers</ion-card-header>
+    <ion-card-header (click)="toggleTwitterFavsGraph()">Twitter Favorites</ion-card-header>
     <ion-list>
-      <twitterFavs *ngIf="showTwitterFavsGraph"></twitterFavs>
+      <twitterFavs *ngIf="showTwitterFavsGraph" [twitterData]="project.twitterDataList"></twitterFavs>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleFacebookLikesGraph()">Facebook Likes</ion-card-header>
+    <ion-list>
+
     </ion-list>
   </ion-card>
 
@@ -50,5 +61,7 @@
       </ion-item>
     </ion-list>
   </ion-card>
+
+
 
 </ion-content>
