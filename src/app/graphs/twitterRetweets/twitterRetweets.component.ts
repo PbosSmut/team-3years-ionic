@@ -1,14 +1,15 @@
 import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {InstagramData} from "../../model/instagram/instagramData";
+import {TwitterData} from "../../model/twitter/twitterData";
 
 @Component({
-  selector: 'instagramFollowers',
-  templateUrl: 'instagramFollowers.component.html',
+  selector: 'twitterRetweets',
+  templateUrl: 'twitterRetweets.component.html',
 })
-export class InstagramFollowersComponent implements OnInit {
+
+export class TwitterRetweetsComponent implements OnInit {
   @Input()
-  instagramData: InstagramData[];
+  private twitterData: TwitterData[];
 
   constructor() {
   }
@@ -53,22 +54,29 @@ export class InstagramFollowersComponent implements OnInit {
   public lineChartType: String = 'line';
   public lineCharDatasLike: number[] = [];
 
-
-  ngOnInit() {
-    this.instagramData.map((value) => {
-      this.lineCharDatasLike.push(value.followed_by);
-      let newDate = new Date(value.timestamp);
-      let newmonth = newDate.getMonth() + 1;
-      let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
-      if (this.lineChartLabels.indexOf(label) == -1) {
-        this.lineChartLabels.push(label);
+  ngOnInit(): void {
+    //make array disctinct and take the last value as true value
+    let temptwitterData: TwitterData[] = [];
+    temptwitterData.push(this.twitterData[0]);
+    let j = 0;
+    for (let i = 0; i < this.twitterData.length; i++) {
+      if (temptwitterData[j].text == this.twitterData[i].text) {
+        temptwitterData.splice(j, 1, this.twitterData[i]);
       } else {
-        this.lineChartLabels.push('');
+        temptwitterData.push(this.twitterData[i]);
+        j++;
       }
+    }
+    this.twitterData = temptwitterData;
+    this.twitterData.filter(tweet => (!tweet.text.startsWith('@'))).map((value) => {
+      let newDate = new Date(value.timestamp);
+      let newMonth = newDate.getMonth() + 1;
+      let label = newDate.getDate() + '/' + newMonth + '/' + newDate.getFullYear();
+      this.lineChartLabels.push(label);
+      this.lineCharDatasLike.push(value.amtRetweetsLastPost);
     });
-
     this.lineChartData = [
-      {data: this.lineCharDatasLike, label: 'Followers amount'}
+      {data: this.lineCharDatasLike, label: 'Retweets amount'}
     ];
   }
 }

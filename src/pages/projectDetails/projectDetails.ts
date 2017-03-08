@@ -12,6 +12,8 @@ export class ProjectDetailsPage {
  private showIndiegogoFundsGraph: boolean = false;
   private showTwitterFollowersGraph: boolean = false;
   private showTwitterFavsGraph: boolean = false;
+  private showTwitterRetweetsGraph: boolean = false;
+  private showInstagramFollowersGraph: boolean = false;
   private showFacebookLikesGraph: boolean = false;
   private showMembers: boolean = false;
   private project : Project;
@@ -39,6 +41,14 @@ export class ProjectDetailsPage {
 
   public toggleTwitterFavsGraph() {
     this.showTwitterFavsGraph = !this.showTwitterFavsGraph;
+  }
+
+  public toggleTwitterRetweetsGraph() {
+    this.showTwitterRetweetsGraph = !this.showTwitterRetweetsGraph;
+  }
+
+  public toggleInstagramFollowersGraph() {
+    this.showInstagramFollowersGraph = !this.showInstagramFollowersGraph;
   }
 
   public toggleShowMembers() {

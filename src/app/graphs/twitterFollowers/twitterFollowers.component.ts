@@ -55,27 +55,25 @@ export class TwitterFollowersComponent implements OnInit {
   public lineCharDatasLike: number[] = [];
 
 
-
   ngOnInit() {
+    this.twitterData.map((value) => {
+      this.lineCharDatasLike.push(value.amtFollowers);
+      console.log(value.timestamp);
+      let newDate = new Date(value.timestamp);
+      console.log(newDate);
+      let newmonth = newDate.getMonth() + 1;
+      console.log(newmonth);
+      let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
+      if (this.lineChartLabels.indexOf(label) == -1) {
+        this.lineChartLabels.push(label);
+      } else {
+        this.lineChartLabels.push('');
+      }
+    });
 
-      this.twitterData.map((value) => {
-        this.lineCharDatasLike.push(value.amtFollowers);
-        console.log(value.timestamp);
-        let newDate = new Date(value.timestamp);
-        console.log(newDate);
-        let newmonth = newDate.getMonth() +1;
-        console.log(newmonth);
-        let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
-        if (this.lineChartLabels.indexOf(label) == -1) {
-          this.lineChartLabels.push(label);
-        } else {
-          this.lineChartLabels.push('');
-        }
-      });
-
-      this.lineChartData = [
-        {data: this.lineCharDatasLike, label: 'Followers amount'}
-      ];
-    }
+    this.lineChartData = [
+      {data: this.lineCharDatasLike, label: 'Followers amount'}
+    ];
   }
+}
 

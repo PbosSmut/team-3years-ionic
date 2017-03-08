@@ -13,7 +13,8 @@ import {FundsPieComponent} from "./graphs/funds/fundsPie.component";
 import {FundsComponent} from "./graphs/funds/funds.component";
 import {TwitterFollowersComponent} from "./graphs/twitterFollowers/twitterFollowers.component";
 import {TwitterFavsComponent} from "./graphs/twitterFavs/twitterFavs.component";
-
+import {TwitterRetweetsComponent} from "./graphs/twitterRetweets/twitterRetweets.component";
+import {InstagramFollowersComponent} from "./graphs/instagramFollowers/instagramFollowers.component";
 
 
 const cloudSettings: CloudSettings = {
@@ -33,7 +34,9 @@ const cloudSettings: CloudSettings = {
     PerksComponent,
     FundsComponent,
     TwitterFollowersComponent,
-    TwitterFavsComponent
+    TwitterFavsComponent,
+    TwitterRetweetsComponent,
+    InstagramFollowersComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -51,7 +54,9 @@ const cloudSettings: CloudSettings = {
     PerksComponent,
     FundsComponent,
     TwitterFollowersComponent,
-    TwitterFavsComponent
+    TwitterFavsComponent,
+    TwitterRetweetsComponent,
+    InstagramFollowersComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

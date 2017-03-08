@@ -14,7 +14,6 @@ export class FundsComponent implements OnInit {
   @Input()
   indiegogoData: IndiegogoData[];
 
-
   constructor() {
   }
 

@@ -1,7 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import {TwitterData} from "../../model/twitter/twitterData";
-import {TwitterService} from "../../services/twitter.service";
 
 @Component({
   selector: 'twitterFavs',
@@ -14,7 +13,6 @@ export class TwitterFavsComponent implements OnInit {
 
   constructor() {
   }
-
 
   public lineChartColors: Array<any> = [
     { // grey
@@ -57,34 +55,32 @@ export class TwitterFavsComponent implements OnInit {
   public lineCharDatasLike: number[] = [];
 
   ngOnInit(): void {
-
-        //make array disctinct and take the last value as true value
-        var temptwitterData: TwitterData[] = [];
-        temptwitterData.push(this.twitterData[0]);
-        var j = 0;
-        for (var i = 0; i < this.twitterData.length; i++) {
-          if (temptwitterData[j].text == this.twitterData[i].text) {
-            temptwitterData.splice(j, 1, this.twitterData[i]);
-          } else {
-            temptwitterData.push(this.twitterData[i]);
-            j++;
-          }
-        }
-        this.twitterData = temptwitterData;
-        this.twitterData.filter(tweet => (!tweet.text.startsWith('@'))).map((value) => {
-          let newDate = new Date(value.timestamp);
-          let newmonth = newDate.getMonth() +1;
-          let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();          this.lineCharDatasLike.push(value.amtFavsLastPost);
-          if (this.lineChartLabels.indexOf(label) == -1) {
-            this.lineChartLabels.push(label);
-          } else {
-            this.lineChartLabels.push('');
-          }
-        });
-        this.lineChartData = [
-          {data: this.lineCharDatasLike, label: 'Favourites on tweet'}
-        ];
-
-
+    //make array disctinct and take the last value as true value
+    let temptwitterData: TwitterData[] = [];
+    temptwitterData.push(this.twitterData[0]);
+    let j = 0;
+    for (let i = 0; i < this.twitterData.length; i++) {
+      if (temptwitterData[j].text == this.twitterData[i].text) {
+        temptwitterData.splice(j, 1, this.twitterData[i]);
+      } else {
+        temptwitterData.push(this.twitterData[i]);
+        j++;
+      }
+    }
+    this.twitterData = temptwitterData;
+    this.twitterData.filter(tweet => (!tweet.text.startsWith('@'))).map((value) => {
+      let newDate = new Date(value.timestamp);
+      let newmonth = newDate.getMonth() + 1;
+      let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
+      this.lineCharDatasLike.push(value.amtFavsLastPost);
+      if (this.lineChartLabels.indexOf(label) == -1) {
+        this.lineChartLabels.push(label);
+      } else {
+        this.lineChartLabels.push('');
+      }
+    });
+    this.lineChartData = [
+      {data: this.lineCharDatasLike, label: 'Favourites on tweet'}
+    ];
   }
 }

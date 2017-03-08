@@ -26,8 +26,7 @@
     <ion-card-header (click)="toggleIndiegogoFundsGraph()">Indiegogo Total Funds Raised</ion-card-header>
     <ion-list>
       <funds *ngIf="showIndiegogoFundsGraph"
-             [indiegogoData]="project.indiegogoDataList"
-      ></funds>
+             [indiegogoData]="project.indiegogoDataList"></funds>
     </ion-list>
   </ion-card>
 
@@ -39,9 +38,23 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header (click)="toggleTwitterFavsGraph()">Twitter Favorites</ion-card-header>
+    <ion-card-header (click)="toggleTwitterFavsGraph()">Twitter Favourites</ion-card-header>
     <ion-list>
       <twitterFavs *ngIf="showTwitterFavsGraph" [twitterData]="project.twitterDataList"></twitterFavs>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleTwitterRetweetsGraph()">Twitter Retweets</ion-card-header>
+    <ion-list>
+      <twitterRetweets *ngIf="showTwitterRetweetsGraph" [twitterData]="project.twitterDataList"></twitterRetweets>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleInstagramFollowersGraph()">Instagram Followers</ion-card-header>
+    <ion-list>
+      <instagramFollowers *ngIf="showInstagramFollowersGraph" [instagramData]="project.instagramDataList"></instagramFollowers>
     </ion-list>
   </ion-card>
 
@@ -61,7 +74,4 @@
       </ion-item>
     </ion-list>
   </ion-card>
-
-
-
 </ion-content>
