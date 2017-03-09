@@ -61,7 +61,14 @@
   <ion-card>
     <ion-card-header (click)="toggleFacebookLikesGraph()">Facebook Likes</ion-card-header>
     <ion-list>
+      <facebookLikes *ngIf="showFacebookLikesGraph" [facebookData]="project.facebookDataList"></facebookLikes>
+    </ion-list>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-header (click)="toggleFacebookPostGraph()">Facebook Post </ion-card-header>
+    <ion-list>
+    <facebookPostGraph *ngIf="showFacebookPostGraph" [facebookData]="project.facebookDataList"></facebookPostGraph>
     </ion-list>
   </ion-card>
 

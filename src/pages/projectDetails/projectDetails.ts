@@ -16,6 +16,7 @@ export class ProjectDetailsPage {
   private showTwitterRetweetsGraph: boolean = false;
   private showInstagramFollowersGraph: boolean = false;
   private showFacebookLikesGraph: boolean = false;
+  private showFacebookPostGraph: boolean = false;
   private showMembers: boolean = false;
   private project: Project;
   private member = {name: ''};
@@ -57,6 +58,8 @@ export class ProjectDetailsPage {
     this.showMembers = !this.showMembers;
   }
 
+
+
   public addMember() {
     this.projectService.addMember(this.project.name, this.project.creatorName, this.member);
     this.projectService.getProject(this.project.name, this.project.creatorName).then(data => this.project = data);
@@ -69,5 +72,9 @@ export class ProjectDetailsPage {
 
   public toggleFacebookLikesGraph() {
     this.showFacebookLikesGraph = !this.showFacebookLikesGraph;
+  }
+
+  public toggleFacebookPostGraph(){
+    this.showFacebookPostGraph = !this.showFacebookPostGraph;
   }
 }
