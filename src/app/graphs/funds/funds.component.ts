@@ -1,13 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {forEach} from "@angular/router/src/utils/collection";
-import {Fund} from "../../model/indiegogo/fund";
-import {IndiegogoService} from "../../services/indiegogo.service";
+import 'rxjs/add/operator/switchMap';
 import {IndiegogoData} from "../../model/indiegogo/indiegogoData";
 
 @Component({
   selector: 'funds',
-  templateUrl: './funds.component.html'
+  templateUrl: 'funds.component.html'
 })
 
 export class FundsComponent implements OnInit {
@@ -60,23 +57,22 @@ export class FundsComponent implements OnInit {
 
 
   ngOnInit() {
-      this.indiegogoData.map((value) => {
-        this.lineCharDatasCollected.push(value.fund.collected_funds);
-        this.lineChartDatasGoal.push(value.fund.goal);
-        let newDate = new Date(value.timestamp);
-        let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
+    this.indiegogoData.map((value) => {
+      this.lineCharDatasCollected.push(value.fund.collected_funds);
+      this.lineChartDatasGoal.push(value.fund.goal);
+      let newDate = new Date(value.timestamp);
+      let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
 
-        if (this.lineChartLabels.indexOf(label) == -1) {
-          this.lineChartLabels.push(label);
-        } else {
-          this.lineChartLabels.push('');
-        }
-      });
-
+      if (this.lineChartLabels.indexOf(label) == -1) {
+        this.lineChartLabels.push(label);
+      } else {
+        this.lineChartLabels.push('');
+      }
+    });
 
     this.lineChartData = [
-        {data: this.lineCharDatasCollected, label: 'Funds Collected'},
-        {data: this.lineChartDatasGoal, label: 'Fund Goal'}
-      ];
-    }
+      {data: this.lineCharDatasCollected, label: 'Funds Collected'},
+      {data: this.lineChartDatasGoal, label: 'Fund Goal'}
+    ];
+  }
 }
