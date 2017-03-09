@@ -63,5 +63,4 @@ export class ProjectService{
   private handleError(error: any): Promise<any>{
     return Promise.reject(error.message || error);
   }
-
 }

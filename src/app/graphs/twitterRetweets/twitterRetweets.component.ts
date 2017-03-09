@@ -55,19 +55,21 @@ export class TwitterRetweetsComponent implements OnInit {
   public lineCharDatasLike: number[] = [];
 
   ngOnInit(): void {
-    //make array disctinct and take the last value as true value
-    let temptwitterData: TwitterData[] = [];
-    temptwitterData.push(this.twitterData[0]);
-    let j = 0;
-    for (let i = 0; i < this.twitterData.length; i++) {
-      if (temptwitterData[j].text == this.twitterData[i].text) {
-        temptwitterData.splice(j, 1, this.twitterData[i]);
-      } else {
-        temptwitterData.push(this.twitterData[i]);
-        j++;
+    if (this.twitterData.length > 1) {
+      //make array disctinct and take the last value as true value
+      let temptwitterData: TwitterData[] = [];
+      temptwitterData.push(this.twitterData[0]);
+      let j = 0;
+      for (let i = 0; i < this.twitterData.length; i++) {
+        if (temptwitterData[j].text == this.twitterData[i].text) {
+          temptwitterData.splice(j, 1, this.twitterData[i]);
+        } else {
+          temptwitterData.push(this.twitterData[i]);
+          j++;
+        }
       }
+      this.twitterData = temptwitterData;
     }
-    this.twitterData = temptwitterData;
     this.twitterData.filter(tweet => (!tweet.text.startsWith('@'))).map((value) => {
       let newDate = new Date(value.timestamp);
       let newMonth = newDate.getMonth() + 1;
