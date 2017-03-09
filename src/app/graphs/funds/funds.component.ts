@@ -47,8 +47,6 @@ export class FundsComponent implements OnInit {
   public lineChartOptions: any = {
     responsive: true,
     scaleShowVerticalLines: false
-
-
   };
   public lineChartLegend: boolean = false;
   public lineChartType: String = 'line';

@@ -70,8 +70,19 @@
     <ion-card-header (click)="toggleShowMembers()">Members</ion-card-header>
     <ion-list *ngIf="showMembers">
       <ion-item *ngFor="let member of project.members">
-        <h2 >{{member.name}}</h2>
+        <p>
+          {{member.name}}
+          <!--<button onclick="removeMember(member)" ion-button icon-right>X</button>-->
+        </p>
       </ion-item>
+
+      <form (ngSubmit)="addMember(member)">
+        <ion-item>
+          <ion-label>Add member</ion-label>
+          <ion-input type="text" [(ngModel)]="member.name" name="name" required></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Add Member</button>
+      </form>
     </ion-list>
   </ion-card>
 </ion-content>

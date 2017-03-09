@@ -4,6 +4,7 @@ import {Http, Headers, RequestOptions} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
 import {ProjectSummary} from "../model/project/projectsummary";
+import {Member} from "../model/project/member";
 
 /**
  * Created by Jesse on 13/02/2017.
@@ -47,6 +48,15 @@ export class ProjectService{
     let headers = new Headers({'Content-Type':'application/json'});
     let options = new RequestOptions({headers:headers});
     return this.http.delete(call,options).toPromise()
+      .catch(this.handleError)
+  }
+
+  addMember(projectName:String, creatorName:String, member:Member) {
+    let call = this.BASE_URL + "/project/" + projectName + "/members/?username=" + creatorName + "&member=" + member.name;
+    let headers = new Headers({'Content-Type':'application/json'});
+    let options = new RequestOptions({headers:headers});
+    let body = JSON.stringify(member);
+    return this.http.post(call,body, options).toPromise()
       .catch(this.handleError)
   }
 
