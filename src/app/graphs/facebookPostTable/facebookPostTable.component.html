@@ -1,0 +1,29 @@
+<div>
+    <div>
+      <div>
+        <table class="table table-responsive table-condensed table-hover">
+          <thead>
+          <tr>
+            <th>Publication Date</th>
+            <th># Likes</th>
+            <th># Comments</th>
+            <th># Shares</th>
+            <th>Link</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of facebookPostData">
+            <td>{{data.timestamp|date: 'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{data.likeAmount}}</td>
+            <td>{{data.numberOfComments}}</td>
+            <td>{{data.shareAmount}}</td>
+            <td><a class="fa  fa-facebook " [href]="data.link"></a></td>
+          </tr>
+          </tbody>
+        </table>
+        <button class="btn-default btn-block" (click)="showAllData()">Show all posts</button>
+
+      </div>
+    </div>
+  </div>
+

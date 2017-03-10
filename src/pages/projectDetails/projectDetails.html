@@ -72,6 +72,13 @@
     </ion-list>
   </ion-card>
 
+  <ion-card>
+    <ion-card-header (click)="toggleFacebookPostTable()">Facebook Post Table</ion-card-header>
+    <ion-list>
+      <facebookPostTable *ngIf="showFacebookPostTable" [allFaceBookPostData]="project.facebookDataList"></facebookPostTable>
+    </ion-list>
+  </ion-card>
+
 
   <ion-card>
     <ion-card-header (click)="toggleShowMembers()">Members</ion-card-header>

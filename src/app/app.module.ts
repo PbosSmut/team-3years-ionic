@@ -17,6 +17,7 @@ import {TwitterRetweetsComponent} from "./graphs/twitterRetweets/twitterRetweets
 import {InstagramFollowersComponent} from "./graphs/instagramFollowers/instagramFollowers.component";
 import {FacebookLikesComponent} from "./graphs/facebookLikes/facebookLikes.component";
 import {FacebookPostGraph} from "./graphs/facebookPostGraph/facebookPostGraph.component";
+import {FacebookPostTable} from "./graphs/facebookPostTable/facebookPostTable.component";
 
 
 const cloudSettings: CloudSettings = {
@@ -40,7 +41,8 @@ const cloudSettings: CloudSettings = {
     TwitterRetweetsComponent,
     InstagramFollowersComponent,
     FacebookLikesComponent,
-    FacebookPostGraph
+    FacebookPostGraph,
+    FacebookPostTable
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -62,7 +64,8 @@ const cloudSettings: CloudSettings = {
     TwitterRetweetsComponent,
     InstagramFollowersComponent,
     FacebookLikesComponent,
-    FacebookPostGraph
+    FacebookPostGraph,
+    FacebookPostTable
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

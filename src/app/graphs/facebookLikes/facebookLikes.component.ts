@@ -55,7 +55,7 @@ export class FacebookLikesComponent implements OnInit {
   ngOnInit(): void {
     this.facebookData.map((value) => {
       this.lineCharDatasLike.push(value.pageInfo.amtPageLikes);
-      console.log(value.pageInfo.amtPageLikes);
+      console.log(value.posts);
       let newDate = new Date(value.timestamp);
       let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
       if (this.lineChartLabels.indexOf(label) == -1) this.lineChartLabels.push(label);
