@@ -5,7 +5,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 import {ProjectService} from './services/projects.service';
 
-
 @Component({
   templateUrl: 'app.html',
   providers: [ProjectService]

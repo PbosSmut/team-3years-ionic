@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import {TabsPage} from "../tabs/tabs";
 import {NavController} from "ionic-angular";
 import {Auth} from '../../app/services/auth.service';
+import {LoginPage} from "../login/login";
+
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+  selector: 'page-profile',
+  templateUrl: 'profile.html'
 })
-export class LoginPage {
+export class ProfilePage {
   constructor(public navCtrl: NavController, public auth: Auth) {}
 
   private navigate() {
-    //TODO: optimalize this method
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 }

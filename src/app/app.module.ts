@@ -19,12 +19,26 @@ import {FacebookLikesComponent} from "./graphs/facebookLikes/facebookLikes.compo
 import {FacebookPostGraph} from "./graphs/facebookPostGraph/facebookPostGraph.component";
 import {FacebookPostTable} from "./graphs/facebookPostTable/facebookPostTable.component";
 
+import { AuthConfig, AuthHttp } from 'angular2-jwt';
+import { Auth } from './services/auth.service';
+import { Http } from '@angular/http';
+import {ProfilePage} from "../pages/profile/profile";
+import { Storage } from '@ionic/storage';
 
 const cloudSettings: CloudSettings = {
   'core': {
     'app_id': 'f8e8bd8a'
   }
 };
+
+let storage: Storage = new Storage();
+
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    globalHeaders: [{'Accept': 'application/json'}],
+    tokenGetter: (() => storage.get('id_token'))
+  }), http);
+}
 
 @NgModule({
   declarations: [
@@ -33,6 +47,7 @@ const cloudSettings: CloudSettings = {
     ProjectsPage,
     ProjectDetailsPage,
     TabsPage,
+    ProfilePage,
     BackersComponent,
     PerksComponent,
     FundsComponent,
@@ -56,6 +71,7 @@ const cloudSettings: CloudSettings = {
     ProjectsPage,
     ProjectDetailsPage,
     TabsPage,
+    ProfilePage,
     BackersComponent,
     PerksComponent,
     FundsComponent,
@@ -67,6 +83,12 @@ const cloudSettings: CloudSettings = {
     FacebookPostGraph,
     FacebookPostTable
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+    Auth,
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http]
+    }, Storage]
 })
 export class AppModule {}
