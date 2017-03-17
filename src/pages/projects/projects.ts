@@ -4,8 +4,6 @@ import {ProjectService} from "../../app/services/projects.service";
 import {Project} from "../../app/model/indiegogo/project";
 import {ProjectDetailsPage} from "../projectDetails/projectDetails";
 import {Auth} from "../../app/services/auth.service";
-import { Storage } from '@ionic/storage';
-
 
 @Component({
   selector: 'projects',
@@ -14,7 +12,7 @@ import { Storage } from '@ionic/storage';
 export class ProjectsPage implements OnInit{
   projecten: Project[];
 
-  constructor(public navCtrl: NavController, private projectService: ProjectService, public auth: Auth, public storage: Storage) {}
+  constructor(public navCtrl: NavController, private projectService: ProjectService, public auth: Auth) {}
 
   ngOnInit() {
       this.projectService.getProjects(this.auth.user.user_id.replace('|', '-')).then(data => this.projecten = data);

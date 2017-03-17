@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 
 import {ProjectsPage} from "../projects/projects";
 import {ProfilePage} from "../profile/profile";
+import {Auth} from "../../app/services/auth.service";
+import {NavController} from "ionic-angular";
+import {LoginPage} from "../login/login";
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'tabs',
@@ -13,6 +17,6 @@ export class TabsPage {
   tab2: any = ProfilePage;
 
 
-  constructor() {
+  constructor(public storage: Storage) {
   }
 }

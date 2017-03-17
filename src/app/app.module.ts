@@ -23,7 +23,7 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { Auth } from './services/auth.service';
 import { Http } from '@angular/http';
 import {ProfilePage} from "../pages/profile/profile";
-import { Storage } from '@ionic/storage';
+import {Storage} from '@ionic/storage';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -31,12 +31,9 @@ const cloudSettings: CloudSettings = {
   }
 };
 
-let storage: Storage = new Storage();
-
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
-    globalHeaders: [{'Accept': 'application/json'}],
-    tokenGetter: (() => storage.get('id_token'))
+    globalHeaders: [{'Accept': 'application/json'}]
   }), http);
 }
 

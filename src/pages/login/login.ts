@@ -11,7 +11,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public auth: Auth) {}
 
   private navigate() {
-    //TODO: optimalize this method
     this.navCtrl.setRoot(TabsPage);
   }
 }

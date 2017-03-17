@@ -66,7 +66,7 @@ export class ProjectDetailsPage {
 
 
   public addMember() {
-    this.projectService.addMember(this.project.name, this.project.creatorName, this.member);
+    //this.projectService.addMember(this.project.name, this.project.creatorName, this.member);
     this.project.members.push(this.member);
     this.ngOnInit();
   }
