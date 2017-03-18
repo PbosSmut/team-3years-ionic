@@ -7,19 +7,25 @@
 <ion-content *ngIf="project">
 
   <ion-card>
-    <ion-card-header (click)="toggleIndiegogoBackersGraph()">Top 5 Indiegogo Backers</ion-card-header>
-    <ion-list class="list">
-      <backers *ngIf="showIndiegogoBackersGraph"
-                [backers]="project.indiegogoDataList[project.indiegogoDataList.length-1].backers"></backers>
-    </ion-list>
+    <ion-card-header (click)="toggleIndiegogoBackersGraph()">
+      <ion-icon name="ios-arrow-down"></ion-icon>
+      Top 5 Indiegogo Backers
+    </ion-card-header>
+    <ion-card-content *ngIf="showIndiegogoBackersGraph">
+      <br>
+      <backers [backers]="project.indiegogoDataList[project.indiegogoDataList.length-1].backers"></backers>
+    </ion-card-content>
   </ion-card>
 
   <ion-card>
-    <ion-card-header (click)="toggleIndiegogoPerksGraph()">Indiegogo Perks Sold</ion-card-header>
-    <ion-list >
-        <perks *ngIf="showIndiegogoPerksGraph"
-               [perks]="project.indiegogoDataList[project.indiegogoDataList.length-1].perks"></perks>
-    </ion-list>
+    <ion-card-header (click)="toggleIndiegogoPerksGraph()">
+      <ion-icon name="ios-arrow-down"></ion-icon>
+      Indiegogo Perks Sold
+    </ion-card-header>
+    <ion-card-content *ngIf="showIndiegogoPerksGraph">
+      <br>
+      <perks [perks]="project.indiegogoDataList[project.indiegogoDataList.length-1].perks"></perks>
+    </ion-card-content>
   </ion-card>
 
   <ion-card>
@@ -54,7 +60,8 @@
   <ion-card>
     <ion-card-header (click)="toggleInstagramFollowersGraph()">Instagram Followers</ion-card-header>
     <ion-list>
-      <instagramFollowers *ngIf="showInstagramFollowersGraph" [instagramData]="project.instagramDataList"></instagramFollowers>
+      <instagramFollowers *ngIf="showInstagramFollowersGraph"
+                          [instagramData]="project.instagramDataList"></instagramFollowers>
     </ion-list>
   </ion-card>
 
@@ -66,16 +73,17 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header (click)="toggleFacebookPostGraph()">Facebook Post </ion-card-header>
+    <ion-card-header (click)="toggleFacebookPostGraph()">Facebook Post</ion-card-header>
     <ion-list>
-    <facebookPostGraph *ngIf="showFacebookPostGraph" [facebookData]="project.facebookDataList"></facebookPostGraph>
+      <facebookPostGraph *ngIf="showFacebookPostGraph" [facebookData]="project.facebookDataList"></facebookPostGraph>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-card-header (click)="toggleFacebookPostTable()">Facebook Post Table</ion-card-header>
     <ion-list>
-      <facebookPostTable *ngIf="showFacebookPostTable" [allFaceBookPostData]="project.facebookDataList"></facebookPostTable>
+      <facebookPostTable *ngIf="showFacebookPostTable"
+                         [allFaceBookPostData]="project.facebookDataList"></facebookPostTable>
     </ion-list>
   </ion-card>
 

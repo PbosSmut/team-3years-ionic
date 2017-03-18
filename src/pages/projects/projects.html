@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let project of projecten" (click)="viewProject(project)">
+  <ion-list no-lines>
+    <button ion-item color="primary" *ngFor="let project of projecten" (click)="viewProject(project)">
       <h2>{{project.name}}</h2>
-    </ion-item>
+    </button>
   </ion-list>
 </ion-content>
