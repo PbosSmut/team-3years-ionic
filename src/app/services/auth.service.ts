@@ -20,7 +20,6 @@ export class Auth {
       sso: false
     }
   });
-  refreshSubscription: any;
   user: any;
   zoneImpl: NgZone;
   accessToken: string;
@@ -50,7 +49,6 @@ export class Auth {
         // Fetch profile information
         this.lock.getUserInfo(this.accessToken, (error, profile) => {
           if (error) {
-            // Handle error
             alert(error);
             return;
           }
@@ -63,8 +61,6 @@ export class Auth {
         this.lock.hide();
 
         this.zoneImpl.run(() => this.user = authResult.profile);
-        // // Schedule a token refresh
-        //this.scheduleRefresh();
       }
     });
   }
@@ -85,7 +81,5 @@ export class Auth {
     this.idToken = null;
     this.storage.remove('refresh_token');
     this.zoneImpl.run(() => this.user = null);
-    // Unschedule the token refresh
-    //this.unscheduleRefresh();
   }
 }
