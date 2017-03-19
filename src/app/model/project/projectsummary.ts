@@ -1,8 +1,6 @@
 import {Member} from "./member";
 import {Twittertag} from "./twittertag";
-/**
- * Created by Jesse on 1/03/2017.
- */
+
 
 export class ProjectSummary{
 

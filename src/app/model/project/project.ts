@@ -4,9 +4,6 @@ import {FacebookData} from "../facebook/facebookData";
 import {IndiegogoData} from "../indiegogo/indiegogoData";
 import {TwitterData} from "../twitter/twitterData";
 import {InstagramData} from "../instagram/instagramData";
-/**
- * Created by De Bièvre on 6-3-2017.
- */
 
 export class Project{
   public name:String;
@@ -19,7 +16,6 @@ export class Project{
   public twitterTags:Twittertag[];
 
   public members:Member[];
- // public scheduledEvents:ScheduledEvent[];
 
   public indiegogoId:String;
   public facebookId:String;
@@ -43,7 +39,6 @@ export class Project{
     this.twitterTags  = [];
 
     this.members = [];
-    //this.scheduledEvents = [];
 
     this.indiegogoId = "";
     this.facebookId = "";

@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import 'rxjs/add/operator/switchMap';
+import {Component, OnInit, Input} from "@angular/core";
+import "rxjs/add/operator/switchMap";
 import {TwitterData} from "../../model/twitter/twitterData";
 
 @Component({
@@ -58,11 +58,8 @@ export class TwitterFollowersComponent implements OnInit {
   ngOnInit() {
     this.twitterData.map((value) => {
       this.lineCharDatasLike.push(value.amtFollowers);
-      console.log(value.timestamp);
       let newDate = new Date(value.timestamp);
-      console.log(newDate);
       let newmonth = newDate.getMonth() + 1;
-      console.log(newmonth);
       let label = newDate.getDate() + '/' + newmonth + '/' + newDate.getFullYear();
       if (this.lineChartLabels.indexOf(label) == -1) {
         this.lineChartLabels.push(label);

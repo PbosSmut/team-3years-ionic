@@ -1,9 +1,7 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {FacebookData} from "../../model/facebook/facebookData";
 import {FacebookPost} from "../../model/facebook/facebookPost";
-/**
- * Created by De Bièvre on 10-3-2017.
- */
+
 
 @Component({
   selector: 'facebookPostTable',
@@ -23,7 +21,7 @@ export class FacebookPostTable implements OnInit {
     console.log("this are all the facebook posts");
     this.allfacebookPosts = this.allFaceBookPostData[this.allFaceBookPostData.length - 1].posts;
     console.log(this.allfacebookPosts);
-    console.log("This are the visible ones");;;;;;;;;;;;
+    console.log("This are the visible ones");
     this.visibleFacebookPostData = [this.allfacebookPosts[0], this.allfacebookPosts[1], this.allfacebookPosts[2]];
     console.log(this.visibleFacebookPostData);
 
