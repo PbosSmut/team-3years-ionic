@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import 'rxjs/add/operator/switchMap';
+import {Component, OnInit, Input} from "@angular/core";
+import "rxjs/add/operator/switchMap";
 import {IndiegogoData} from "../../model/indiegogo/indiegogoData";
 
 @Component({
@@ -59,7 +59,8 @@ export class FundsComponent implements OnInit {
       this.lineCharDatasCollected.push(value.fund.collected_funds);
       this.lineChartDatasGoal.push(value.fund.goal);
       let newDate = new Date(value.timestamp);
-      let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
+      let newMonth = newDate.getMonth() + 1;
+      let label = newDate.getDate() + '/' + newMonth + '/' + newDate.getFullYear();
 
       if (this.lineChartLabels.indexOf(label) == -1) {
         this.lineChartLabels.push(label);

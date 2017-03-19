@@ -1,9 +1,5 @@
-/**
- * Created by De Bièvre on 9-3-2017.
- */
-
-import {Component, OnInit, Input} from '@angular/core';
-import 'rxjs/add/operator/switchMap';
+import {Component, OnInit, Input} from "@angular/core";
+import "rxjs/add/operator/switchMap";
 import {FacebookData} from "../../model/facebook/facebookData";
 
 @Component({

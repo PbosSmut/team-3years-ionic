@@ -11,26 +11,30 @@ import {FacebookPost} from "../../model/facebook/facebookPost";
 })
 export class FacebookPostTable implements OnInit {
   @Input()
-   allFaceBookPostData: FacebookData[];
-   public facebookPostData: FacebookPost[];
+  allFaceBookPostData: FacebookData[];
+  allfacebookPosts: FacebookPost[];
+  visibleFacebookPostData: FacebookPost[];
 
   constructor() {
   }
 
 
   ngOnInit(): void {
-    this.facebookPostData = this.allFaceBookPostData[this.allFaceBookPostData.length-1].posts;
+    console.log("this are all the facebook posts");
+    this.allfacebookPosts = this.allFaceBookPostData[this.allFaceBookPostData.length - 1].posts;
+    console.log(this.allfacebookPosts);
+    console.log("This are the visible ones");;;;;;;;;;;;
+    this.visibleFacebookPostData = [this.allfacebookPosts[0], this.allfacebookPosts[1], this.allfacebookPosts[2]];
+    console.log(this.visibleFacebookPostData);
 
   }
 
   showAllData(): void {
-    let firstThree = [this.facebookPostData[0],this.facebookPostData[1],this.facebookPostData[2]];
-    if (this.facebookPostData.length > 3) {
-      this.facebookPostData = firstThree;
+    let firstThree = [this.allfacebookPosts[0], this.allfacebookPosts[1], this.allfacebookPosts[2]];
+    if (this.visibleFacebookPostData.length > 3) {
+      this.visibleFacebookPostData = firstThree;
     } else {
-      this.facebookPostData = this.allFaceBookPostData[this.allFaceBookPostData.length-1].posts;
+      this.visibleFacebookPostData = this.allfacebookPosts;
     }
-
-    console.log(this.facebookPostData);
   }
 }

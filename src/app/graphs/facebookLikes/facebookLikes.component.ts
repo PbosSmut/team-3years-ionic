@@ -1,8 +1,6 @@
 import {FacebookData} from "../../model/facebook/facebookData";
 import {Input, OnInit, Component} from "@angular/core";
-/**
- * Created by De Bièvre on 6-3-2017.
- */
+
 
 @Component({
   selector: 'facebookLikes',
@@ -55,7 +53,6 @@ export class FacebookLikesComponent implements OnInit {
   ngOnInit(): void {
     this.facebookData.map((value) => {
       this.lineCharDatasLike.push(value.pageInfo.amtPageLikes);
-      console.log(value.posts);
       let newDate = new Date(value.timestamp);
       let label = newDate.getDate() + '/' + newDate.getMonth() + 1 + '/' + newDate.getFullYear();
       if (this.lineChartLabels.indexOf(label) == -1) this.lineChartLabels.push(label);

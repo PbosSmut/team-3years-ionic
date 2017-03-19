@@ -1,10 +1,10 @@
 <div>
     <div>
       <div>
-        <table class="table table-responsive table-condensed table-hover">
+        <table class="table table-responsive" style="color:black;">
           <thead>
           <tr>
-            <th>Publication Date</th>
+            <th>Publication</th>
             <th># Likes</th>
             <th># Comments</th>
             <th># Shares</th>
@@ -12,12 +12,12 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let data of facebookPostData">
-            <td>{{data.timestamp|date: 'dd/MM/yyyy HH:mm'}}</td>
-            <td>{{data.likeAmount}}</td>
-            <td>{{data.numberOfComments}}</td>
-            <td>{{data.shareAmount}}</td>
-            <td><a class="fa  fa-facebook " [href]="data.link"></a></td>
+          <tr *ngFor="let data of visibleFacebookPostData">
+            <td style="text-align:center;">{{data.timestamp|date: 'dd/MM/yy'}}</td>
+            <td style="text-align:center;">{{data.likeAmount}}</td>
+            <td style="text-align:center;">{{data.numberOfComments}}</td>
+            <td style="text-align:center;">{{data.shareAmount}}</td>
+            <td style="text-align:center;"><a [href]="data.link">Link</a></td>
           </tr>
           </tbody>
         </table>
