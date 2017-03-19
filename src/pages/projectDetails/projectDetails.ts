@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {Project} from "../../app/model/indiegogo/project";
+import {Project} from "../../app/model/project/project";
 import {ProjectService} from "../../app/services/projects.service";
 import {Member} from "../../app/model/project/member";
 
@@ -63,18 +63,10 @@ export class ProjectDetailsPage {
     this.showMembers = !this.showMembers;
   }
 
-
-
   public addMember() {
-    //this.projectService.addMember(this.project.name, this.project.creatorName, this.member);
     this.project.members.push(this.member);
-    this.ngOnInit();
+    this.projectService.updateProject(this.project).then(() => this.ngOnInit());
   }
-
-  // public removeMember(member:Member) {
-  //   this.projectService.addMember(this.project.name, this.project.creatorName, this.member);
-  //   this.projectService.getProject(this.project.name, this.project.creatorName).then(data => this.project = data);
-  // }
 
   public toggleFacebookLikesGraph() {
     this.showFacebookLikesGraph = !this.showFacebookLikesGraph;
@@ -87,5 +79,4 @@ export class ProjectDetailsPage {
   public toggleFacebookPostTable(){
     this.showFacebookPostTable = !this.showFacebookPostTable;
   }
-
 }

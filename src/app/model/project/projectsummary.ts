@@ -1,5 +1,5 @@
-import {Member} from "./member";
 import {Twittertag} from "./twittertag";
+import {Member} from "./member";
 
 
 export class ProjectSummary{

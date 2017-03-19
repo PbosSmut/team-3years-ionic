@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {TabsPage} from "../pages/tabs/tabs";
+import {LoginPage} from "../pages/login/login";
 
 let comp: MyApp;
 let fixture: ComponentFixture<MyApp>;
@@ -33,7 +34,7 @@ describe('Component: Root Component', () => {
     expect(comp).toBeTruthy();
   });
 
-  it('initialises with a root page of TabsPage', () => {
-    expect(comp['rootPage']).toBe(TabsPage);
+  it('initialises with a root page of LoginPage', () => {
+    expect(comp['rootPage']).toBe(LoginPage);
   });
 });

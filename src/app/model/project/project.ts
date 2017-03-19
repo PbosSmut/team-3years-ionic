@@ -1,7 +1,7 @@
-import {Twittertag} from "./twittertag";
 import {Member} from "./member";
-import {FacebookData} from "../facebook/facebookData";
+import {Twittertag} from "./twittertag";
 import {IndiegogoData} from "../indiegogo/indiegogoData";
+import {FacebookData} from "../facebook/facebookData";
 import {TwitterData} from "../twitter/twitterData";
 import {InstagramData} from "../instagram/instagramData";
 
@@ -52,3 +52,4 @@ export class Project{
     this.instagramDataList = [];
   }
 }
+

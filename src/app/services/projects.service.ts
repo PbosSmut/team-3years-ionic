@@ -43,6 +43,22 @@ export class ProjectService{
     });
   }
 
+  updateProject(project:Project) : Promise<void>{
+    let call = this.BASE_URL + "/project" + "?username=" + project.creatorName;
+
+    return this.storage.get('id_token').then(res => {
+      let headers = new Headers({
+        'Content-Type':'application/json',
+        'Authorization':'Bearer ' + res
+      });
+      let options = new RequestOptions({headers:headers});
+      let body = JSON.stringify(project);
+
+      return this.http.post(call,body, options).toPromise()
+        .catch(this.handleError)
+    });
+  }
+
   private handleError(error: any): Promise<any>{
     return Promise.reject(error.message || error);
   }
